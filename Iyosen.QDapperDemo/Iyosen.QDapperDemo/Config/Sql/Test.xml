@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mappings>
+  <mapping name="s_goods_info" author="wzl">
+    <schemas>
+      <schema name="goodsname" remark="商品名称"/>
+      <schema name="pid" remark="pid"/>
+      <schema name="remark" remark="备注"/>
+    </schemas>
+    <parameters>
+      <parameter name="id" remark="id"/>
+    </parameters>
+    <sql>
+      <![CDATA[
+      select id,goodsname,pid,remark from goods where 1=1
+      ]]>
+      <if test="@id!=null and @id2!=null">
+        <![CDATA[
+        and id>@id or id<=@id2
+        ]]>
+      </if>
+    </sql>
+  </mapping>
+</mappings>
